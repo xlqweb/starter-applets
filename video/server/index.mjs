@@ -21,6 +21,7 @@ const app = express()
 app.use(express.json())
 
 const upload = multer({dest: '/tmp/'})
+console.log(upload);
 app.post('/api/upload', upload.single('video'), async (req, res) => {
   try {
     console.log(req.file);
