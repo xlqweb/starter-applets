@@ -23,6 +23,7 @@ app.use(express.json())
 const upload = multer({dest: '/tmp/'})
 app.post('/api/upload', upload.single('video'), async (req, res) => {
   try {
+    console.log(req.file);
     const file = req.file
     const resp = await uploadVideo(file)
     res.json({data: resp})
